@@ -13,7 +13,7 @@ elif ! git log $BASE_COMMIT > /dev/null 2>&1; then
     echo "No valid base commit found."
     exit 0
 fi
-LABS=`git diff $BASE_COMMIT --stat | grep -o "lab[0-9]" | uniq`
+LABS=`git diff $BASE_COMMIT --stat | grep -o "lab[1-8]" | sort | uniq`
 COMMIT=`git rev-parse HEAD`
 
 if [ "$LABS" = "" ]; then
